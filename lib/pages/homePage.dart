@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather/pages/searchPage.dart';
 
 class HomePage extends StatelessWidget {
-  static const String route_name='homePage';
-
+  static const String route_name = 'homePage';
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +11,10 @@ class HomePage extends StatelessWidget {
         title: const Text('Weather App'),
         actions: [
           IconButton(
-              onPressed: (){
+              onPressed: () {
                 Navigator.of(context).pushNamed(SearchPage.route_name);
-              }, icon: const Icon(Icons.search))
+              },
+              icon: const Icon(Icons.search))
         ],
       ),
       body: Center(
@@ -35,4 +35,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
