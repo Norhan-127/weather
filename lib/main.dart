@@ -15,10 +15,9 @@ class WeatherApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         HomePage.route_name: (context) => HomePage(),
-        SearchPage.route_name:(context)=>SearchPage(),
+        SearchPage.route_name: (context) => SearchPage(),
       },
       initialRoute: HomePage.route_name,
     );
   }
 }
-

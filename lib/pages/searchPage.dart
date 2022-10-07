@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather/Models/weatherModel.dart';
 import 'package:weather/services/weatherService.dart';
 
 class SearchPage extends StatelessWidget {
@@ -28,14 +29,16 @@ class SearchPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextField(
-            onChanged: (data){
-              cityName=data;
-              WeatherService service=WeatherService();
-              service.getWeather(cityName: cityName!);
+            onChanged: (data) async{
+              cityName = data;
+              WeatherService service = WeatherService();
+              // service.getWeather(cityName: cityName!);
+              WeatherModel weather=await service.getWeather(cityName: cityName!);
+              // print(weather);
             },
             decoration: const InputDecoration(
                 contentPadding:
-                EdgeInsets.symmetric(vertical: 30.0, horizontal: 20),
+                    EdgeInsets.symmetric(vertical: 30.0, horizontal: 20),
                 suffixIcon: Icon(Icons.search),
                 hintText: 'Enter A City ',
                 label: Text('Search'),
@@ -46,4 +49,3 @@ class SearchPage extends StatelessWidget {
     );
   }
 }
-
