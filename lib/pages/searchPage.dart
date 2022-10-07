@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather/services/weatherService.dart';
 
 class SearchPage extends StatelessWidget {
   static const String route_name = 'search_screen';
@@ -29,10 +30,12 @@ class SearchPage extends StatelessWidget {
           child: TextField(
             onChanged: (data){
               cityName=data;
+              WeatherService service=WeatherService();
+              service.getWeather(cityName: cityName!);
             },
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
                 contentPadding:
-                const EdgeInsets.symmetric(vertical: 30.0, horizontal: 20),
+                EdgeInsets.symmetric(vertical: 30.0, horizontal: 20),
                 suffixIcon: Icon(Icons.search),
                 hintText: 'Enter A City ',
                 label: Text('Search'),
